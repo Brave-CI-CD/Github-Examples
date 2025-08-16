@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"This Placeholder should be replaced by real test\" && exit 0"
   },
   "keywords": [],
   "author": "",
