@@ -9,6 +9,9 @@ jobs:
         - name: "My Step"
           env:
             MY_ACTION: ${{ github.action }}
-          run: echo "Hello...${MY_ACTION}"
+            MY_ACTOR: ${{ github.actor }}
+          run: |
+            echo "Actor : ${MY_ACTOR}"
+            echo "Action: ${MY_ACTION}"
 
                 
