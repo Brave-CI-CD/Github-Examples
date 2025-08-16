@@ -4,6 +4,7 @@
   "description": "A repo containing GitHub for programmatic examples",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
+    "eslint": "^9.33.0",
     "jest": "^30.0.5"
   }
 }
