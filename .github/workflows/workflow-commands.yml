@@ -12,5 +12,11 @@ jobs:
                 echo "This is a message 1 inside the group."
                 echo "This is a message 2 inside the group."
                 echo "::endgroup::"
+            - name: "step 1"
+              run: |
+                echo "MY_VAL=DevOps engineer" >> $GITHUB_ENV
+            - name: "step 2"
+              run: |
+                echo $MY_VAL"
 
                 
