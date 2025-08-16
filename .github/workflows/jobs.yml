@@ -1,0 +1,26 @@
+name: Sequential Jobs
+
+on: [push]
+
+jobs:
+  job_one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - First job
+        run: echo "Running Job One"
+
+  job_two:
+    needs: job_one
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 2 - Second job
+        run: echo "Running Job Two"
+
+  job_three:
+    needs: job_two
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 3 - Third job
+        run: |
+            echo "Running Job Three!"
+            echo "Hey, ${{ github.actor }} ...jobs terminated!"
