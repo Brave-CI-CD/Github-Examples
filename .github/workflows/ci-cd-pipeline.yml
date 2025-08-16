@@ -66,5 +66,5 @@ jobs:
       - name: Deploy to production
         run: |
             echo "Deploying application..."
-            echo "Hey, ${{ github.actor }} ...secuencial & parallel jobs terminated!"
+            echo "Hey, ${{ github.actor }} ...secuential and parallel jobs terminated!"
             
