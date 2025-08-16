@@ -2,13 +2,13 @@ name: example-workflow
 on: [push]
 jobs:
   hello-world:
-    if: github.repository == 'octo-org/octo-repo-prod'
+    if: github.repository == 'Brave-CI-CD/Github-Examples'
     runs-on: ubuntu-latest
     steps:
-      - name: "Hello World"
-        run:  echo "Hello World!"
+      - name: "Hello GitHub"
+        run:  echo "Hello GitHub lover!"
   goodbye-moon:
     runs-on: ubuntu-latest
     steps:
-      - name: "Goodbye Moon"
-        run:  echo "Goodbye Moon!"
+      - name: "Goodbye GitHub"
+        run:  echo "Goodbye GitHub lover!"
