@@ -1,0 +1,76 @@
+# GitHub Actions workflow script that includes build, test, and deployment stages, 
+# along with informative messages for each step:
+
+name: Python CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - tutorials
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Confirm checkout
+      run: echo "✅ Code checked out successfully."
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+        architecture: 'x64'
+
+    - name: Confirm Python setup
+      run: echo "🐍 Python setup complete."
+
+    - name: Install dependencies
+      run: |
+          echo "📦 Installing dependencies..."
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          echo "✅ Dependencies installed successfully."
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+        architecture: 'x64'
+
+    - name: Run tests
+      run: |
+        echo "🧪 Running tests with pytest..."
+        pip install pytest pytest-cov
+        pytest tests.py --doctest-modules \
+                        --junitxml=junit/test-results.xml \
+                        --cov=. \
+                        --cov-report=xml \
+                        --cov-report=html
+        echo "✅ Tests completed and coverage reports generated."
+        
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Deploy application
+      run: |
+        echo "🚀 Deploying application..."
+        # Add your deployment commands here
+        echo "✅ Deployment complete!"
+
+          
+    
