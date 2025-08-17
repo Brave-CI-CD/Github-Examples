@@ -1,6 +1,6 @@
 # This workflow installs Python dependencies, run tests and lint with a single version of Python
 
-name: Python package testing
+name: Python package testing documented
 
 on:
   push:
@@ -12,26 +12,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Confirm checkout
+      run: echo "✅ Code checked out successfully."
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: "3.x"
         architecture: 'x64'
+    - run: echo "🐍 Python setup complete."
 
     - name: Install dependencies
       run: |
+          echo "📦 Installing dependencies..."
           python -m pip install --upgrade pip
-          pip install -r requirements.txt 
+          pip install -r requirements.txt
+          echo "✅ Dependencies installed successfully."
 
     - name: Test with pytest
       run: |
+        echo "🧪 Running tests with pytest..."
         pip install pytest pytest-cov
         pytest tests.py --doctest-modules \
                         --junitxml=junit/test-results.xml \
                         --cov=. \
                         --cov-report=xml \
                         --cov-report=html
+        echo "✅ Tests completed and coverage reports generated."
+        
             
 
           
