@@ -1,6 +1,5 @@
 # Github-Examples
-A repo containing GitHub for programmatic examples
+Branch meant to execute the official GitHub Actions tutorials
 
-Notes: 
-- 1st. change meant to trigger the workflow on DEV GitHub server
-- 2nd. change meant to trigger the workflow after the pull request main => dev is merged
+https://docs.github.com/en/actions/tutorials/build-and-test-code/python
+
